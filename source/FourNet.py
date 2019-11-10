@@ -81,6 +81,7 @@ class FourierHead(torch.nn.Module):
                                  torch.nn.ReLU(),
                                  torch.nn.Linear(bottleneck, D_out),
                                  torch.nn.LogSoftmax(dim=1))
+            self.add_module('branch_{0}'.format(level), branch)
             self.branches.append(branch)
             self.weights.append(weight)
     
